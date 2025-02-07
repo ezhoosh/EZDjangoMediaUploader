@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+recursive-exclude docs *
+recursive-exclude tests *
+recursive-exclude core *
+recursive-include media_uploader_widget *
+recursive-include media_uploader_widget/static *
+recursive-include media_uploader_widget/templates *

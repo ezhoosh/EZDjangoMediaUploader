@@ -1,0 +1,69 @@
+[project]
+requires-python = ">= 3.8"
+name = 'django-media-uploader-widget'
+version = '1.0.1'
+description='Simple Media Uploader Widget for Django-Admin'
+dependencies = [
+  'django>=4.2',
+  'Pillow',
+]
+authors = [{name = "Amir Sharifi", email = "ami_rsh@outlook.com"}]
+maintainers = [{name = "Amir Sharifi", email = "ami_rsh@outlook.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["django", "admin", "widget", "media", "uploader"]
+classifiers = [
+  'Development Status :: 5 - Production/Stable',
+  'Environment :: Web Environment',
+  'Framework :: Django',
+  'Intended Audience :: Developers',
+  'License :: OSI Approved :: MIT License',
+  'Operating System :: OS Independent',
+  'Programming Language :: Python',
+  'Programming Language :: Python :: 3',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Programming Language :: Python :: 3.12',
+]
+
+[project.optional-dependencies]
+dev = ["black", "isort", "pre-commit", "poethepoet"]
+test = ["playwright", "tiny-match-snapshot==0.0.2"]
+docs = ["mkdocs", "mkdocs-material", "mkdocs-glightbox", "mkdocs-awesome-pages-plugin"]
+
+[project.urls]
+homepage = "https://github.com/ezhoosh/EZDjangoMediaUploader"
+documentation = "https://github.com/ezhoosh/EZDjangoMediaUploader"
+
+[build-system]
+requires = ["setuptools", "build"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.isort]
+profile = 'black'
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+packages = ["media_uploader_widget"]
+
+[tool.poe.tasks.test_pg]
+cmd = "python manage.py test"
+env = { DATABASE_USE_POSTGRES = "1" }
+
+[tool.poe.tasks.test_pg_currently]
+cmd = "python manage.py test --tag currently"
+env = { DATABASE_USE_POSTGRES = "1" }
+
+[tool.poe.tasks.run_pg]
+cmd = "python manage.py runserver"
+env = { DATABASE_USE_POSTGRES = "1" }
+
+[tool.poe.tasks.docs]
+cmd = "mkdocs serve"
