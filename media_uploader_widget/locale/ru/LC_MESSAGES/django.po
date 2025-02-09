@@ -13,7 +13,7 @@ msgstr ""
 #: image_uploader_widget/postgres/forms.py:13
 #, python-format
 msgid "Item %(name)s in the array did not validate:"
-msgstr "Элемент %(nth)s в массиве не прошёл проверку:"
+msgstr "Элемент %(name)s в массиве не прошёл проверку:"
 
 #: image_uploader_widget/templates/admin/edit_inline/image_uploader.html:48
 #: image_uploader_widget/templates/postgres/widgets/image_array.html:102
